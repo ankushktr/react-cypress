@@ -1,28 +1,26 @@
-name: tags
+name: Artifacts
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
-    # let's make sure our "app" works on several versions of Node
-    strategy:
-      matrix:
-        node: [10, 12]
-    name: E2E on Node v${{ matrix.node }}
+    runs-on: ubuntu-20.04
+    name: Artifacts
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+      # after the test run completes
+      # store videos and any screenshots
+      # NOTE: screenshots will be generated only if E2E test failed
+      # thus we store screenshots only on failures
+      # Alternative: create and commit an empty cypress/screenshots folder
+      # to always have something to upload
+      - uses: actions/upload-artifact@v2
+        if: failure()
         with:
-          node-version: ${{ matrix.node }}
-      - run: node -v
-
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      - uses: actions/upload-artifact@v2
+        if: always()
         with:
-          record: true
-          tag: node-${{ matrix.node }}
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: cypress-videos
+          path: cypress/videos
