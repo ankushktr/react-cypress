@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Start Tunnel
         uses: LambdaTest/LambdaTest-tunnel-action@v1
-        id: "1018293"
+        id: tunnel
         with:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
