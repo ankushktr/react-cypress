@@ -4,7 +4,6 @@ jobs:
   test-tunnel:
     runs-on: ubuntu-latest
     steps:
-      # ...
       - name: Start Tunnel
         uses: LambdaTest/LambdaTest-tunnel-action@v1
         id: "1018293"
@@ -18,4 +17,3 @@ jobs:
         with:
           name: tunnel_logs
           path: ${{ steps.tunnel.outputs.logFileName }}
-      # ...
