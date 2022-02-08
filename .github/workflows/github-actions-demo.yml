@@ -10,7 +10,7 @@ jobs:
         with:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
-          tunnelName: "32736138-c02f-440e-8fb9-5d1d4f6221f3"
+          tunnelName: "testing tunnel"
       - run: npm test
       - name: Export Tunnel Logs for debugging
         uses: actions/upload-artifact@v2
