@@ -5,5 +5,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump inputs context
-        run: echo '$GITHUB_EVENT_NAME'
+      - name: Dump matrix context
+        run: echo '$GITHUB_WORKSPACE'
