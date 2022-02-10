@@ -1,5 +1,5 @@
 name: Test matrix
-on: push
+on: pull_request
 
 jobs:
   test:
@@ -16,5 +16,5 @@ jobs:
         with:
           name: Build log for job ${{ strategy.job-index }}
           path: test-job-${{ strategy.job-index }}.txt
-      - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
