@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump matrix context
-        run: echo "$GITHUB_EVENT_NAME"
+        run: echo '${{ toJSON(github) }}'
