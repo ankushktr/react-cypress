@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
+        run: echo '${{ toJSON(secrets) }}'
