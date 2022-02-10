@@ -5,8 +5,4 @@ jobs:
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate 0 or 1
-        id: generate_number
-        run: echo "::set-output name=random_number::123"
-      - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
+      - uses: actions/checkout@v2
