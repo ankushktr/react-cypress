@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - shell: bash
-        run: ${{github.token}}
+        run: echo "$GITHUB.REPOSITORY"
