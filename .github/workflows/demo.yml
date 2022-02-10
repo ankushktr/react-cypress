@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump inputs context
-        run: echo '${{ toJSON(inputs) }}'
+        run: echo '$GITHUB_EVENT_NAME'
