@@ -4,6 +4,5 @@ jobs:
   example-job:
     runs-on: ubuntu-latest
     steps:
-      - name: The job has succeeded
-        if: ${{ success() }}
-        run: echo "hello"
+      - shell: bash
+        run: ${{github.token}}
