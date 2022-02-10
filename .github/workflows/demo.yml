@@ -1,20 +1,9 @@
 name: Test matrix
-on: pull_request
+on: push
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        test-group: [1, 2]
-        node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - run: echo 1+1 > test-job-${{ strategy.job-index }}.txt
-      - name: Upload logs
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build log for job ${{ strategy.job-index }}
-          path: test-job-${{ strategy.job-index }}.txt
-      - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+      - name: Dump inputs context
+        run: echo '${{ toJSON(inputs) }}'
