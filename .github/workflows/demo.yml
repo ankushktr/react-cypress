@@ -1,9 +1,20 @@
-name: Context
+name: Test matrix
 on: push
 
 jobs:
-  dump_contexts_to_log:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-group: [1, 2]
+        node: [14, 16]
     steps:
-      - name: Dump runner context
-        run: echo '${{ toJSON(secrets) }}'
+      - uses: actions/checkout@v2
+      - run: npm test > test-job-${{ strategy.job-index }}.txt
+      - name: Upload logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build log for job ${{ strategy.job-index }}
+          path: test-job-${{ strategy.job-index }}.txt
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
