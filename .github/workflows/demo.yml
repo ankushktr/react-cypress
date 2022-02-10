@@ -1,9 +1,15 @@
 name: Test matrix
-on: push
+on:
+  issues:
+    types:
+      - opened
 
 jobs:
-  test:
+  label_issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump secret context
-        run: echo '${{ toJSON(secrets) }}'
+      - env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_EXECUTE }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          gh issue edit $ISSUE_URL --add-label "bug"
