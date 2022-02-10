@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump matrix context
-        run: echo '$GITHUB_WORKSPACE'
+        run: echo "$GITHUB_CONTEXT"
