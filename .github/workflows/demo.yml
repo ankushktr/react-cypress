@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Generate 0 or 1
         id: generate_number
-        run: echo "123"
+        run: echo "::set-output name=random_number::123"
       - name: Dump steps context
         run: echo '${{ toJSON(steps) }}'
