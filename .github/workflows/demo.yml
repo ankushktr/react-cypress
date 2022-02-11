@@ -2,7 +2,7 @@ name: Test matrix
 on:
   issues:
     types:
-      - opened
+      - labeled
 
 jobs:
   run_if_label_matches:
