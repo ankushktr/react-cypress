@@ -2,8 +2,10 @@ name: Test matrix
 on: push
 
 jobs:
-  test:
+  print_context:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump secret context
-        run: echo '${{ toJSON(secrets) }}'
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
