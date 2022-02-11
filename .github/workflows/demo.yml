@@ -1,15 +1,12 @@
 name: Test matrix
 on:
-  pull_request:
+  issues:
     types:
-      - opened
-    paths:
-      - ".github/workflows/**"
-      - ".github/CODEOWNERS"
-      - "package*.json"
+      - labeled
 
 jobs:
-  print_context:
+  run_if_label_matches:
+    if: github.event.label.name == 'bug'
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{ toJSON(github) }}'
+      - run: echo 'The label was bug'
