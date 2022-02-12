@@ -7,6 +7,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+      - name: View context attributes
+        uses: actions/github-script@v6
+        with:
+          script: console.log(github)
