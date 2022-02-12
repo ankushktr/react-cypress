@@ -1,8 +1,5 @@
 name: Test matrix
-on:
-  issues:
-    types:
-      - labeled
+on: push
 
 jobs:
   run_if_label_matches:
