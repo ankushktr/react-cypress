@@ -6,7 +6,8 @@ on:
 
 jobs:
   run_if_label_matches:
-    if: github.event.label.name == 'bug'
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'The label was bug'
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
