@@ -1,10 +1,11 @@
 name: Upload data
-on: pull_request
+on: push
 
 jobs:
   print-tag:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print the input tag to STDOUT
-        run: echo  The tag is '${{ toJSON(github) }}'
+      - name: The job has succeeded
+        if: ${{ success() }}
+        run: echo "sucess"
