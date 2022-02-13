@@ -9,3 +9,7 @@ jobs:
       - name: The job has succeeded
         if: ${{ success() }}
         run: echo "sucess"
+
+      - name: The job has always
+        if: ${{ always() }}
+        run: echo "always"
