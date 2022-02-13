@@ -9,15 +9,19 @@ jobs:
         run: echo "job1"
 
   job2:
-    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: The job has succeeded
         run: echo "job2"
 
   job3:
-    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
       - name: The job has succeeded
         run: echo "job3"
+
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: The job has succeeded
+        run: echo "job4"
