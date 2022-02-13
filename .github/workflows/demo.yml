@@ -1,27 +1,20 @@
-name: Upload data
-on: push
-
+name: Node.js CI
+on: [push]
 jobs:
-  job1:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - node-version: 10.x
+            site: "prod"
+            datacenter: "site-a"
+          - node-version: 12.x
+            site: "dev"
+            datacenter: "site-b"
     steps:
-      - name: The job has succeeded
-        run: echo "job1"
-
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: The job has succeeded
-        run: echo "job2"
-
-  job3:
-    runs-on: ubuntu-latest
-    steps:
-      - name: The job has succeeded
-        run: echo "job3"
-
-  job4:
-    runs-on: ubuntu-latest
-    steps:
-      - name: The job has succeeded
-        run: echo "job4"
+      - name: Echo site details
+        env:
+          SITE: ${{ matrix.site }}
+          DATACENTER: ${{ matrix.datacenter }}
+        run: echo $SITE $DATACENTER
