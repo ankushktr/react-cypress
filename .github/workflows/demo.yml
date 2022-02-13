@@ -1,5 +1,9 @@
+name: Upload data
 on:
   push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - v1.1
 
 jobs:
   upload:
