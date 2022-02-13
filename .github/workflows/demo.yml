@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: The job has succeeded
-        run: echo ${{ddd}}
+        run: echo "job1"
 
   job2:
     needs: job1
