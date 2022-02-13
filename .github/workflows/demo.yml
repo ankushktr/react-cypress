@@ -2,14 +2,21 @@ name: Upload data
 on: push
 
 jobs:
-  print-tag:
+  job1:
     runs-on: ubuntu-latest
-
     steps:
       - name: The job has succeeded
-        if: ${{ success() }}
-        run: echo "sucess"
+        run: echo ${{ddd}}
 
-      - name: The job has always
-        if: ${{ always() }}
-        run: echo "always"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: The job has succeeded
+        run: echo "job2"
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: The job has succeeded
+        run: echo "job3"
