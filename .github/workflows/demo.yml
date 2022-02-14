@@ -5,4 +5,3 @@ jobs:
     uses: ankushkatiyar/react-cypress/.github/workflows/demo1.yml@main
     with:
       username: "ankush"
-      token: "tokendata"
