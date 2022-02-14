@@ -4,7 +4,7 @@ jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/demo1.yml
+      - uses: .github/workflows/demo1.yml
         with:
           username: "ankush"
           token: "tokendata"
