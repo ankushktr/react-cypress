@@ -1,0 +1,7 @@
+name: demo CI
+on: push
+jobs:
+  demo1Job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo '${{toJSON(input)}}'

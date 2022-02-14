@@ -1,13 +1,19 @@
-name: Node.js CI
-on: [push]
+name: demo CI
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      envPAT:
+        required: true
 jobs:
-  workflow-command-job:
+  reusable_workflow_job:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - name: disable workflow commands
-        run: |
-          echo '::warning:: this is a warning'
-          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-          echo '::warning:: this will NOT be a warning'
-          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
-          echo '::warning:: this is a warning again'
+      - uses: ./.github/workflows/demo1.yml
+        with:
+          username: ${{ inputs.username }}
+          token: ${{ secrets.envPAT }}
