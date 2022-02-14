@@ -1,19 +1,10 @@
 name: demo CI
-on:
-  workflow_call:
-    inputs:
-      username:
-        required: true
-        type: string
-    secrets:
-      envPAT:
-        required: true
+on: push
 jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - uses: ./.github/workflows/demo1.yml
         with:
-          username: ${{ inputs.username }}
-          token: ${{ secrets.envPAT }}
+          username: "ankush"
+          token: "tokendata"
