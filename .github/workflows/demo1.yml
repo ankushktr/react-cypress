@@ -4,4 +4,4 @@ jobs:
   demo1Job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{toJSON(input)}}'
+      - run: echo '${{toJSON(inputs)}}'
