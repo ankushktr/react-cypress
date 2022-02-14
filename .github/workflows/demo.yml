@@ -2,9 +2,7 @@ name: demo CI
 on: push
 jobs:
   reusable_workflow_job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ankushkatiyar/react-cypress/.github/workflows/demo1.yml@main
-        with:
-          username: "ankush"
-          token: "tokendata"
+    uses: ankushkatiyar/react-cypress/.github/workflows/demo1.yml@main
+    with:
+      username: "ankush"
+      token: "tokendata"
