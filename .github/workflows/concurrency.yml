@@ -2,14 +2,17 @@ name: demo CI
 on: push
 jobs:
   demo:
+    concurrency: testing
     runs-on: ubuntu-latest
     steps:
       - run: echo "demo"
   demo1:
+    concurrency: testing
     runs-on: ubuntu-latest
     steps:
       - run: echo "demo1"
   demo2:
+    concurrency: testing
     runs-on: ubuntu-latest
     steps:
       - run: echo "demo2"
