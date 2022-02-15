@@ -1,0 +1,15 @@
+name: demo CI
+on: push
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "demo"
+  demo1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "demo1"
+  demo2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "demo2"
