@@ -2,17 +2,23 @@ name: demo CI
 on: push
 jobs:
   demo:
-    concurrency: testing
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - run: echo "demo"
   demo1:
-    concurrency: testing
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - run: echo "demo1"
   demo2:
-    concurrency: testing
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - run: echo "demo2"
